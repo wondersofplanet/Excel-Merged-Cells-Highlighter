@@ -1,0 +1,17 @@
+Sub HighlightMergedCells()
+    Dim rng As Range
+    Dim mergedCell As Range
+
+    ' Loop through each cell in the active sheet
+    For Each rng In ActiveSheet.UsedRange
+        ' Check if the cell is part of a merged range
+        If rng.MergeCells Then
+            ' If the cell is merged, store its entire merged range
+            Set mergedCell = rng.MergeArea
+            ' Change the background color of the merged range to an even lighter shade of green' 
+            ' For light yellow, you can use the RGB color code (255, 255, 153).
+
+            mergedCell.Interior.Color = RGB(204, 255, 204) ' Even lighter green color
+        End If
+    Next rng
+End Sub
